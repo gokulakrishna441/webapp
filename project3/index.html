@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form validation</title>
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  </head>
+  <body>
+    <div class="container">
+    <form name="form" id="formation" >
+      <div class="content">  
+      <label for="Username">Username</label>
+      <input type="text" placeholder="Username" id="username" />
+      <i class="fa fa-check-circle" aria-hidden="true"></i>
+      <i class="fa fa-exclamation-circle" aria-hidden="true"></i><br /><br />
+      <small>* please fill valid details</small>
+    </div>
+    <div class="content">  
+      <label for="Password">Password</label>
+      <input type="password" placeholder="Password" id="password" />
+      <i class="fa fa-eye" class="eyes" aria-hidden="true" onclick="showpass()"></i>
+      <i class="fa fa-check-circle" aria-hidden="true"></i>
+      <i class="fa fa-exclamation-circle" aria-hidden="true"></i><br /><br />
+      <small>* please fill valid details</small>
+    </div>  
+    <div class="content">  
+      <label for="email">Email</label>
+      <input type="email" placeholder="Email" id="email" />
+      <i class="fa fa-check-circle" aria-hidden="true"></i>
+      <i class="fa fa-exclamation-circle" aria-hidden="true"></i><br /><br />
+      <small>* please fill valid details</small>
+    </div> 
+    <div class="content">  
+      <label for="dob" id="user">Dob</label>
+      <input type="date" class="date" name="dob" id="dob"/>
+      <i class="fa fa-check-circle" aria-hidden="true"></i>
+      <i class="fa fa-exclamation-circle" aria-hidden="true"></i><br /><br />
+      <small>* please fill valid details</small>
+    </div>
+    <div class="content">
+      <label for="age">Age</label>
+      <input type="number" min="1" max="100" placeholder="age" name="age" id="age" />
+      <i class="fa fa-check-circle" aria-hidden="true"></i>
+      <i class="fa fa-exclamation-circle" aria-hidden="true"></i><br /><br />      
+      <small>* please fill valid details</small>
+    </div>
+    <button>Submit</button>
+    
+    </form>
+    <div class="container2 " id="lg">
+      <h1>Login</h1>
+      <form name="login" id="log">
+        <div class="slider-content">
+        <label for="user">Username</label>
+        <input type="text" name="username" id="us">
+        </div>
+        <div class="slider-content">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="pas">
+        </div>
+        <button>Login</button>
+      </form>
+
+    </div>
+      
+</div>
+
+
+
+
+
+
+     
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  
+   const form=document.getElementById('formation');
+   const username=document.getElementById('username');
+   const password=document.getElementById('password');
+   const email=document.getElementById('email');
+   const dob=document.getElementById('dob');
+   const age=document.getElementById('age');
+   const form2=document.getElementById("log");
+
+
+
+  form.addEventListener('submit', e =>{
+    e.preventDefault();
+    validatingform();
+    //  setSlider();
+   });
+
+  form2.addEventListener('submit',e =>{
+    e.preventDefault();
+    loginmodal();
+  });
+
+   function validatingform(){
+   
+   const usernameValue=username.value.trim();
+   const passwordValue=password.value.trim();
+   const emailValue=email.value.trim();
+   const dobValue=dob.value.trim();
+   const ageValue=age.value.trim();
+  
+   if(usernameValue ===""){
+      setError(username,"*please fill valid details");
+      // console.log("gokul");
+   }
+   else if(!isUser(usernameValue)){
+      setError(username,"*please fill text only");
+      // console.log("gk");
+   }
+   else{
+      setSuccess(username);
+      // console.log("krishna");
+   }
+    
+   if(passwordValue ===""){
+      setError(password,"*please fill valid details");
+   }
+   else if(!ispassword(passwordValue)){
+    setError(password,"*Minimum eight characters, at least one letter, one number and one special character");
+   }
+   else{
+      setSuccess(password);
+          
+   }
+   if(emailValue === ""){
+      setError(email,"*please fill valid details");
+   }
+   else if(!isemail(emailValue)){
+    setError(email,"*please fill valid details");
+   }
+   
+   else{
+      setSuccess(email);
+    }
+   if(dobValue === ""){
+      setError(dob,"*please fill valid details");
+   }
+   else{
+      setSuccess(dob);
+   }
+   if(ageValue === ""){
+      setError(age,"*please fill valid details");   
+   }   
+   else if(!isage(ageValue)){
+    // alert("age is greater than 100")
+    setError(age,"*age is greater than 100");
+   }
+
+   else{
+      setSuccess(age);
+     
+   }
+  
+  if(usernameValue ==="" && !isUser(usernameValue)){
+   setError(usernameValue);
+   console.log("error2");
+  }
+  else if(passwordValue ==="" && !ispassword(passwordValue)){
+   setError(passwordValue);
+   console.log("error");
+   
+  }
+  else if(emailValue ==="" && !isemail(emailValue)){
+   setError(emailValue);
+  }
+  else if(dobValue ===""){
+   setError(dobValue);
+  }
+  else if(ageValue ===""){
+   setError(ageValue);
+  }
+  else{
+    setSlider();
+    console.log("write");
+  }
+
+}
+ 
+    
+  function setError(input,message){
+    
+      const formControl=input.parentElement;
+      const small=formControl.querySelector('small');
+      formControl.className="content error";
+      small.innerText=message;
+       
+
+  }
+  function setSuccess(input){
+    
+    const formControl=input.parentElement;
+    formControl.className="content success";  
+
+}
+
+function isUser(username){
+  return /^[a-zA-Z\-]+$/.test(username);
+}
+
+function isemail(email){
+  return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
+}
+
+function ispassword(password){
+  return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(password);
+   
+}
+
+function isage(age){ 
+  return /^(0?[1-9]|[1-9][0-9]|[1][1-9][1-9]|200)$/.test(age);
+  
+}
+
+function showpass(){
+ var x=document.getElementById("password");
+  if(x.type === "password"){
+    x.type="text";
+  }
+  else{ 
+    x.type="password";
+  }
+}
+
+function setSlider(input){
+  // const formControl=input.parentElement;
+  // formControl.className="container2 slider";
+  
+  document.getElementById("lg").className="slider container2";
+  console.log("hi gokul");
+
+
+}
+// function loginmodal(input){
+//   console.log("login");
+//   document.getElementById("myModal").className="container3 login";
+  
+// }
+
+
+
+
+
+
+   
+
+
+</script>
+  </body>
+</html>
