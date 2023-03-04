@@ -1,0 +1,143 @@
+body{
+    margin:0;
+    padding:0;
+    height: 100vh;
+    background:linear-gradient(120deg,#44a3cc,#cb349e);
+    overflow: hidden;
+
+}
+.center {
+    position:absolute;
+    top:50%;
+    left:75%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    background: rgba(107, 35, 136, 0.309);
+    border-radius:30px; 
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,.37); 
+    
+}
+.center h1{
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid rgb(46, 55, 29);
+    color: white;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,.3);
+    opacity: .9;
+
+}
+
+.center form{
+    padding: 0  40px;
+    box-sizing: border-box; 
+}
+
+form.text-field{
+    position:relative;
+    border-bottom: 2px solid #b24848;
+    margin: 30px 0;
+}
+
+.text-field input{
+    width:100%;
+    padding: 0 5px;
+    height: 20px;
+    font-size: 16px;
+    
+    /* background: none;
+    outline:none; */
+}
+
+.text-field {
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.text-field input{
+      width: 100%;
+      margin: 5% auto;
+      margin-bottom:8%;
+      border:none;
+      background:transparent;
+      outline: none;
+      color:white;
+      border-bottom:1px solid rgba(255,255,255,0.6);
+        
+}
+.text-field label{
+    position: absolute;
+    outline: #44a3cc;
+    color:#f6ecec;
+    transform:translateY(-50%);
+    font-size: 16px;
+}
+.pass{
+    align-items: center;
+    padding-bottom: 20px;
+    text-align: center;
+    color: rgb(244, 244, 244);
+    font-size: 16px;
+    font-weight: 500;
+    text-shadow: 0 2 32px rgba(70, 57, 8, 0.1);
+}
+input[type="submit"]{
+   
+    align-items: center;
+    text-align: center;
+    margin:auto;
+    width: 100%;
+    padding: 10px 10px;
+    font-size: 25px;
+    border-radius: 30px;
+    border: 1px solid rgba(176, 132, 219, 0.244);
+    color:white;
+    background:#522e5e4f;
+    letter-spacing: 5px;
+    font-weight: bold; 
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif,'Courier New', Courier, monospace;
+    
+}
+.signup {
+    padding: 20px;
+    color: white;
+    align-items: center;
+    text-align: center;
+       
+}
+
+.pass:hover{
+    text-decoration: underline;
+}
+
+.signup:hover{
+    text-decoration:underline;
+}
+.intro p{
+    margin:10px 100px;
+    margin-top:-53px;
+    width:40%;
+    padding-top:0px;
+    top: 20px;
+    color: #f6ecec;
+    font-size: 20px;
+    letter-spacing:2px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.intro h1{
+    margin: 60px 80px 10px 100px;
+    width: 300px;
+    height: 150px;
+    color: rgb(44, 71, 115);
+    font-family:cursive;
+    text-shadow:20px rgba(178, 92, 212, 0.309); 
+
+}
+.image {
+   margin-left: 90px;
+}
+ 
+
+
+ 
