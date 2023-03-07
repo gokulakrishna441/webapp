@@ -67,7 +67,22 @@
       </form>
 
     </div>
+    <div class="container3" id="mymodel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <video id="video" controls style="height:100vh; width:100%;margin:0;">
+            <source src="Megham Karukatha Official Lyric Video Th (You2Audio.Com).mp4">
+          </video> 
+          <button type="button" class="closetag" data-bs-dismiss="modal" onclick="windowclose()">X</button>
+      </div>      
+      </div>    
+    </div>
+
+    
       
+</div>
+<div class="modeltag" >
+  <button onclick="loginmodal()" style="position: absolute;left:30px;">Model</button>
 </div>
 
 
@@ -93,101 +108,138 @@
 
 
   form.addEventListener('submit', e =>{
-    e.preventDefault();
+    e.preventDefault();     
     validatingform();
-    //  setSlider();
    });
 
   form2.addEventListener('submit',e =>{
     e.preventDefault();
     loginmodal();
-  });
+    
+    });
+    
 
-   function validatingform(){
+  function validatingform(){
    
    const usernameValue=username.value.trim();
    const passwordValue=password.value.trim();
    const emailValue=email.value.trim();
    const dobValue=dob.value.trim();
    const ageValue=age.value.trim();
+
+   var userid=true;
+   var passid=true;
+   var emailid=true;
+   var dobid=true;
+   var ageid=true;
+   
+
+
+    
+   
   
    if(usernameValue ===""){
       setError(username,"*please fill valid details");
+       userid=false;
+      
       // console.log("gokul");
    }
    else if(!isUser(usernameValue)){
       setError(username,"*please fill text only");
+       userid=false;
+      
       // console.log("gk");
    }
    else{
       setSuccess(username);
       // console.log("krishna");
+       userid=true;
+      
    }
     
    if(passwordValue ===""){
       setError(password,"*please fill valid details");
+       passid=false;
+      
    }
    else if(!ispassword(passwordValue)){
     setError(password,"*Minimum eight characters, at least one letter, one number and one special character");
+     passid=false;
    }
    else{
       setSuccess(password);
+       passid=true;
+     
           
    }
    if(emailValue === ""){
       setError(email,"*please fill valid details");
+       emailid=false;
+     
    }
    else if(!isemail(emailValue)){
     setError(email,"*please fill valid details");
+     emailid=false;
+    
    }
    
    else{
       setSuccess(email);
+       emailid=true;
+      
     }
    if(dobValue === ""){
       setError(dob,"*please fill valid details");
+       dobid=false;
+      
    }
    else{
       setSuccess(dob);
+       dobid=false;
    }
    if(ageValue === ""){
-      setError(age,"*please fill valid details");   
+      setError(age,"*please fill valid details"); 
+       ageid=false;
+       
    }   
    else if(!isage(ageValue)){
     // alert("age is greater than 100")
     setError(age,"*age is greater than 100");
+     ageid=false;
    }
+     else{
+      setSuccess(age);  
+       ageid=true;    
+   } 
 
-   else{
-      setSuccess(age);
-     
-   }
-  
-  if(usernameValue ==="" && !isUser(usernameValue)){
-   setError(usernameValue);
-   console.log("error2");
+
+
+  if(!userid == true){
+    setError();
+    console.log("error");
   }
-  else if(passwordValue ==="" && !ispassword(passwordValue)){
-   setError(passwordValue);
-   console.log("error");
-   
+  else if(!passid == true){
+    setError();
+    console.log("error");
   }
-  else if(emailValue ==="" && !isemail(emailValue)){
-   setError(emailValue);
+  else if(!emailid == true){
+    setError();
+    console.log("error");
   }
-  else if(dobValue ===""){
-   setError(dobValue);
+  else if(!ageid ==true){
+    setError();
+    console.log("error");
   }
-  else if(ageValue ===""){
-   setError(ageValue);
+  else if(!dob == true){
+    setError();
+    console.log("error");
   }
   else{
     setSlider();
-    console.log("write");
-  }
-
+    console.log("success");
+  }  
+   
 }
- 
     
   function setError(input,message){
     
@@ -239,18 +291,20 @@ function setSlider(input){
   
   document.getElementById("lg").className="slider container2";
   console.log("hi gokul");
+}
+function loginmodal(input){
+  console.log("login");
+  document.getElementById("mymodel").className="container3 login";
+  
+}
 
+function windowclose(){
+  document.getElementById("mymodel").className="container3 close login";
+  var videos=document.getElementById("video");
+  videos.pause();
+  video.currentTime=0;  
 
 }
-// function loginmodal(input){
-//   console.log("login");
-//   document.getElementById("myModal").className="container3 login";
-  
-// }
-
-
-
-
 
 
    

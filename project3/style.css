@@ -232,11 +232,20 @@ body{
     height: 100%;  
     
 } 
-.closetag{
+.container3 .closetag{
     position: absolute;
     top: 0px;
-    right: 0px;
-    background-color: transparent;
+    right: 15px;   
+    border: none;
+    width:25px;
+    height: 20px;
+    background-color:transparent;
+    color: black;
+    border: 1px solid black;
+}
+
+.container3.close.login{
+    display: none;
 }
 
 
