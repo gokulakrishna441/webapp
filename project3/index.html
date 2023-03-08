@@ -71,7 +71,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <video id="video" controls style="height:100vh; width:100%;margin:0;">
-            <source src="Megham Karukatha Official Lyric Video Th (You2Audio.Com).mp4">
+            <source src="5percent_green.mp4">
           </video> 
           <button type="button" class="closetag" data-bs-dismiss="modal" onclick="windowclose()">X</button>
       </div>      
@@ -302,9 +302,14 @@ function windowclose(){
   document.getElementById("mymodel").className="container3 close login";
   var videos=document.getElementById("video");
   videos.pause();
-  video.currentTime=0;  
+  video.currentTime=0;
 
 }
+var videos=document.getElementById("video");
+videos.onended = function(e) {
+  document.getElementById("mymodel").className="container3 close login";
+} 
+
 
 
    
